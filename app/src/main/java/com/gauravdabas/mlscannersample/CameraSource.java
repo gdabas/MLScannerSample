@@ -251,6 +251,7 @@ public class CameraSource {
     this.facing = facing;
   }
 
+
   /** Returns the preview size that is currently in use by the underlying camera. */
   public Size getPreviewSize() {
     return previewSize;
@@ -332,6 +333,17 @@ public class CameraSource {
     camera.addCallbackBuffer(createPreviewBuffer(previewSize));
 
     return camera;
+  }
+
+  @SuppressLint("InlinedApi")
+  public void startFlashMode(boolean isFlashOn) throws IOException {
+    Camera.Parameters parameters = camera.getParameters();
+    if (isFlashOn){
+      parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+    } else {
+      parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+    }
+    camera.setParameters(parameters);
   }
 
   /**

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fireTopLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,34 +8,92 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
+
+
     <com.gauravdabas.mlscannersample.CameraSourcePreview
         android:id="@+id/firePreview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFF"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_height="match_parent"
+        android:background="#FFFF" />
 
-    <!--<LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/camera_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Start Camera" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:background="@color/semitransparent" />
 
-        <TextView
-            android:id="@+id/scanned_text"
-            android:textColor="@color/black"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5" />
 
-    </LinearLayout>-->
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <View
+                android:id="@+id/left"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@color/semitransparent" />
+
+            <LinearLayout
+                android:id="@+id/scannerLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_toEndOf="@+id/left"
+                android:layout_toLeftOf="@id/right"
+                android:layout_toRightOf="@id/left"
+                android:layout_toStartOf="@+id/right"
+                android:background="@drawable/ic_viewfinder"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/scannerBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/green" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/right"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@color/semitransparent" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/semitransparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:background="@color/semitransparent">
+
+            <ImageButton
+                android:id="@+id/flash_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_flash_off_white_18dp"
+                android:tag="OFF"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
